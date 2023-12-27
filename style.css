@@ -1,0 +1,543 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800;900&family=Kumbh+Sans:wght@400;700&family=Overpass:wght@300;500;600&family=Poppins:wght@400;700;800&family=Ubuntu:wght@300;400;500;700&display=swap');
+:root {
+    --Marine-blue: hsl(213, 96%, 18%);
+    --Purplish-blue: hsl(243, 100%, 62%);
+    --Pastel-blue: hsl(228, 100%, 84%);
+    --Light-blue: hsl(206, 94%, 87%);
+    --Strawberry-red: hsl(354, 84%, 57%);
+    --Cool-gray: hsl(231, 11%, 63%);
+    --Light-gray: hsl(229, 24%, 87%);
+    --Magnolia: hsl(217, 100%, 97%);
+    --Alabaster: hsl(231, 100%, 99%);
+    --White: hsl(0, 0%, 100%);
+}
+/* Start global rules */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+button {
+    border: none;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: .5rem;
+    text-transform: capitalize;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+/* End global rules */
+body {
+    background-color: var(--Light-gray);
+    font-family: 'Ubuntu', sans-serif;
+}
+.container {
+    width: 75vw;
+    border: 1px solid;
+    margin: 2rem auto;
+    display: flex;
+    padding: 1rem;
+    height: 80vh;
+    background-color: var(--White);
+    border-radius: 1rem;
+}
+.container .sidebar {
+    background-image: url(assets/images/bg-sidebar-desktop.svg);
+    width: 35%;
+    border-radius: .7rem;
+    padding: 2rem;
+}
+.container .sidebar .line {
+    display: flex;
+    cursor: pointer;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--White);
+}
+.container .sidebar .line button {
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--White);
+    color: var(--White);
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0;
+}
+.container .sidebar .line button:hover,
+.container .sidebar .line button.active {
+    background-color: var(--Light-blue);
+    color: var(--Purplish-blue);
+    transition: .3s;
+}
+.container .sidebar .line .info {
+    height: 50px;
+    text-transform: uppercase;
+}
+.container .sidebar .line .info p {
+    color: var(--Cool-gray);
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+.container .sidebar .line .info h4 {
+    font-size: 14px;
+}
+/* Start steps */
+.step {
+    padding: 2rem 4rem  ;
+    flex: 1;
+}
+.step .title {
+    margin-bottom: 2rem;
+}
+.step .title h2 {
+    text-transform: capitalize;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 1.75rem;
+}
+.step .title h2 + p {
+    color: var(--Cool-gray);
+    font-size: 14px;
+    margin-top: .5rem;
+}
+.step .buttons {
+    display: flex;
+    margin-top: 2rem;
+}   
+.step .buttons .back {
+    transition: .3s;
+    color: var(--Cool-gray);
+    background: var(--Magnolia);
+}
+.step .buttons .back:hover {
+    color: var(--Marine-blue);
+    
+}
+.step button.next {
+    padding: 1rem 1.5rem;
+    font-size: 13px;
+    background-color: var(--Marine-blue);
+    color: var(--White);
+    border-radius: .5rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    display: flex;
+    margin-left: auto;
+    transition: .3s;
+}
+.step button.next:hover {
+    background-color: var(--Purplish-blue);
+    background-color: hsl(213deg 72.65% 33.38%);
+    transition: .3s;
+}
+/* Start step 1 */
+.step1 {
+    display: none;
+    opacity: 0;
+    transition: 1s;
+}
+.step1.active {
+    display: block;
+    opacity: 1;
+    animation: fade-in 1s ease-in;
+}
+.step1.show {
+    display: block;
+    animation: none;
+    opacity: 1;
+}
+.step1 #form .labels {
+    display: flex;
+    justify-content: space-between;
+}
+.step1 #form .labels .error {
+    color: red;
+    font-size: 13px;
+    font-weight: 700;
+}
+.step1 #form label {
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+    font-size: 13px;
+}
+.step1 #form input {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border-radius: .5rem;
+    border: 2px solid var(--Light-gray);
+}
+.step1 input:hover {
+    border-color: var(--Purplish-blue);
+    cursor: pointer;
+    transition: .3s;
+}
+/* End step one */
+/* Start step two */
+.step2 {
+    display: none;
+    opacity: 0;
+    transition: 1s;
+}
+.step2.active {
+    display: block;
+    opacity: 1;
+    animation: fade-in 1s ease-in;
+}
+.step2 .plans {
+    display: flex;
+    gap: 1rem;
+}
+.step2 .plans .plan {
+    border: 1px solid var(--Cool-gray);
+    flex: 1;
+    height: 130px; 
+    padding: .6rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.step2 .plans .plan.clicked {
+    border-color: var(--Purplish-blue);
+}
+.step2 .plans .plan.yearly {
+    height: 150px;
+}
+.step2 .plans .plan:hover {
+    border-color: var(--Purplish-blue);
+}
+.step2 .plans .plan > img {
+    width: 35px;
+    height: 35px;
+}
+.step2 .plans .plan .price h4 {
+    font-size: 15px;
+    color: var(--Marine-blue);
+}
+.step2 .plans .plan .price span.price {
+    margin: .4rem 0;
+    display: block;
+    color: var(--Cool-gray);
+    font-size: 13px
+    
+}
+.step2 .plans .plan .price p {
+    color: hsl(213deg 72.65% 33.38%);
+    font-size: 11px;
+    font-weight: bold;
+    display: none;
+}
+.step2 .plans .plan .price p.yearly {
+    display: none;
+    &.annual {
+        display: block;
+    }
+}
+.step2 .duration {
+    display: flex;
+    background-color: var(--Magnolia);
+    padding: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 1rem;
+    align-items: center;
+    border-radius: .5rem;
+}
+.step2 .duration span {
+    font-size: 13px;
+    color: var(--Cool-gray);
+    font-weight: 700;
+    cursor: pointer;
+}
+.step2 .duration span.active {
+    color: var(--Marine-blue);
+}
+.step2 .duration .radio-control {
+    background-color: var(--Marine-blue);
+    width: 35px;
+    padding: 2px;
+    border-radius: 1rem;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+}
+.step2 .duration .radio-control input[type='radio'] {
+    position: absolute;
+    left: 3px;
+    top: 4px;
+}
+.step2 .duration .radio-control input.yearly {
+    right: 3px;
+    transition: .3s;
+    left: auto;
+}
+.step2 .duration .radio-control:hover {
+    transition: .3s;
+    background-color: hsl(213deg 72.65% 33.38%);
+}
+/* End step two */
+/* Start step three */
+.step3 {
+    display: none;
+    opacity: 0;
+    transition: 1s;  
+}
+.step3.active {
+    display: block;
+    opacity: 1;
+    animation: fade-in 1s ease-in;
+}
+.step3 .input-control {
+    border: 2px solid var(--Light-gray);
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    transition: .3s;
+}
+.step3 .input-control.checked {
+    border-color: var(--Marine-blue);
+}
+.step3 .input-control:hover {
+    border-color: var(--Marine-blue);
+}
+.step3 .text {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+}
+
+.step3 .input-control .text [type='checkbox'] {
+    /* appearance: none; */
+    width: 15px;
+    opacity: 0;
+    height: 15px;
+}
+.step3 .input-control .text [type='checkbox'] + label {
+    
+    border: 1px solid;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 8px;
+    transform: translate(-50%, 0);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.step3 .input-control .text [type='checkbox'] + label::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: blueviolet;
+    position: absolute;
+}
+.step3 .input-control .text [type='checkbox'] + label::after {
+    content: '\002714';
+    color: white;
+    position: absolute;
+    background-image: url(fonts/fonts/icomoon.svg);
+    font-weight: 900;
+    background-size: contain;background-size: cover;
+    transform: scale(0);
+    transition: .3s;
+}
+.step3 .input-control .text [type='checkbox']:checked + label::after {
+    transform: scale(1) rotate(360deg);
+}
+.step3 .buttons,
+.step4 .buttons {
+    margin-top: 3rem;
+}
+/* End step three */
+/* Start step four */
+.step4 {
+    display: none;
+    opacity: 0;
+    transition: 1s;
+    &.active {
+        display: block;
+        opacity: 1;
+        animation: fade-in 1s ease-in;
+    }
+    .title {
+
+    }
+    .plan {
+        .line {
+            padding: 1rem;
+            &:first-of-type {
+                p {
+                    color: var(--Marine-blue);
+                    font-weight: 700;
+                    span {
+                        font-size: 1rem;
+                        margin-left: 4px;
+                    }
+                }
+            }
+            &.total {
+                span {
+                    color: var(--Purplish-blue);
+                    font-size: 1.25rem;
+                }
+            }
+            p {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+                color: var(--Cool-gray);
+                
+                span {
+                    font-weight: 700;
+                    font-size: 12px;
+                    color: var(--Marine-blue);
+                }
+                + span {
+                    font-weight: 700;
+                
+                }
+            }
+            div {
+                display: flex;
+                justify-content: space-between;
+            }
+            &:not(:first-of-type, :nth-of-type(2)) {
+                justify-content: space-between;
+                display: flex;
+            }
+            &:not(:last-of-type) {
+                background-color: var(--Magnolia);
+                border-bottom: 1px solid var(--Light-gray);
+            }
+        }
+    }
+    .buttons {
+        button#next.confirm{
+            background-color: var(--Purplish-blue);
+        }
+    }
+}
+/* End step four */
+/* Start step five */
+.step5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    display: none;
+    opacity: 0;
+    transition: 1s;
+    img {
+        width: 75px;
+        height: 75px;
+    }
+    h3 {
+        font-size: 1.75rem;
+        color: var(--Marine-blue);
+    }
+    p {
+        line-height: 1.7;
+        font-size: .9rem;
+        font-weight: 700;
+        color: var(--Cool-gray);
+    }
+    &.active {
+        display: block;
+        opacity: 1;
+        animation: fade-in 1s ease-in;
+    }
+}
+/* End step five */
+/* Start media */
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+        width: 100vw;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: transparent;
+        & .sidebar {
+            display: flex;
+            height: 200px;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+            background-image: url(assets/images/bg-sidebar-mobile.svg);
+            background-size: cover;
+            border-radius: 0;
+            & .line {
+                & .info {
+                    display: none;
+                }
+            }
+        }
+        & .step {
+            position: absolute;
+            background: var(--White);
+            width: 90%;
+            left: 5%;
+            top: 7rem;
+            border-radius: 1rem;
+            height: 68vh;
+            .buttons {
+                position: absolute;
+                background-color: var(--White);
+                width: 100vw;
+                left: -5vw;
+                padding: 1rem;
+                bottom: -15vh;
+            }
+        }
+        .step2 {
+            & .plans {
+                flex-direction: column;
+                & .plan {
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    gap: 1rem;
+                }
+            }
+        }
+    }
+}
+/* End media */
+/* End steps */
+/* Start animation */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: .2;
+    }
+    60% {
+        opacity: .6;
+    }
+    90% {
+        opacity: 1;
+    }
+}
+/* End animation */
