@@ -53,6 +53,7 @@ body {
     width: 35%;
     border-radius: .7rem;
     padding: 2rem;
+    background-size: cover;
 }
 .container .sidebar .line {
     display: flex;
